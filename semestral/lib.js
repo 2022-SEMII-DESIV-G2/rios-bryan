@@ -8,10 +8,24 @@ const pyramid=[ "75","95","64","17","47","82","18","35","87","10","20","04","82"
                 "04","62","98","27","23","09","70","98","73","93","38","53","60","04","23"];
 var sum;
 var route = new Array(15);
+var form =`<form id="form">
+<div id="inputs">
+    <label for="">Niveles: </label>
+    <input type="number" min="5" max="15" id="levels" placeholder="5">
+</div>
+<div id="bx_btn">
+    <button class="btn" type="button" onclick="Run_Pyramid()">Cargar pirámide</button>
+</div>
+</form>`;
+
+var bxbtn=`<button type="button" class="btn" onclick="Run_Pyramid()">Imprimir Pirámide</button>
+<button type="button" class="btn" onclick="Show_Route()">Mostrar ruta</button>
+<button type="button" class="btn" onclick="Volver()">Volver</button>`
 
 function Run_Pyramid() {
   document.getElementById("pyramid").innerHTML = "";
   document.getElementById("sum").innerHTML = "Suma: ";
+  document.getElementById("bx_btn").innerHTML = `${bxbtn}`;
   var position = 0;
   for (let level = 0; level < 15; level++) {
     document.getElementById(
@@ -40,3 +54,6 @@ function Show_Route() {
   });
   document.getElementById("sum").innerHTML = `Suma: ${sum}`;
 }
+function Volver(){
+  document.location=document.location;
+  }
